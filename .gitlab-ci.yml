@@ -31,17 +31,13 @@ release:
   stage: release
   image: registry.gitlab.com/gitlab-org/release-cli:latest
   needs:
-    - job: test
     - job: build
       artifacts: true
-  rules:
+  rules:                          
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  release:                                         
-    tag_name: 'v0.$CI_PIPELINE_IID'                # The version is incremented per pipeline.
-    description: 'v0.$CI_PIPELINE_IID'
-    ref: '$CI_COMMIT_SHA'  
+  release:
+    ref: '$CI_COMMIT_SHA'
     assets:
       links:
         - name: 'binary'
           url: 'https://gitlab.com/api/v4/projects/57106016/jobs/artifacts/main/raw/review/index.html?job=build'
-
