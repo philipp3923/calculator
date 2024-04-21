@@ -1,0 +1,26 @@
+# Define the stages of the pipeline
+stages:
+  - build
+  - test
+
+# Define the jobs for each stage
+jobs:
+  # Job to build the project using Maven
+  build:
+    stage: build
+    script:
+      - mvn clean package  # Clean and build the Maven project
+    artifacts:
+      paths:
+        - target/*.jar    # Upload the generated JAR file as an artifact
+
+  # Job to run unit tests
+  test:
+    stage: test
+    script:
+      - mvn test          # Run Maven tests
+    artifacts:
+      when: always        # Upload test results as artifacts
+      reports:
+        junit:
+          - target/surefire-reports/*.xml  # Capture test results in JUnit XML format
