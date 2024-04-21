@@ -1,8 +1,8 @@
 # Define the stages of the pipeline
 stages:
-  - build-project
-  - test-project
-  - release-project
+  - build
+  - test
+  - release
 
 
 # Job to build the project using Maven
@@ -19,6 +19,8 @@ build-project:
 test-project:
   stage: test
   image: maven:latest
+  needs:
+    - job: build-project
   script:
     - mvn test -D java.awt.headless=true # Run Maven tests
   artifacts:
@@ -34,9 +36,13 @@ release-project:
     - job: test-project
     - job: build-project
       artifacts: true
+  script:
+    - echo "creating release"
   rules:                          
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   release:
+    tag_name: 'v0.$CI_PIPELINE_IID' 
+    description: 'v0.$CI_PIPELINE_IID'   
     ref: '$CI_COMMIT_SHA'
     assets:
       links:
