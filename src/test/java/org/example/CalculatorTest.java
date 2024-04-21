@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class CalculatorTest {
+public class CalculatorTest {
     @Test
     public void testPerformOperation() {
         Calculator calculator = new Calculator();
