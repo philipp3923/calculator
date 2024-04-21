@@ -19,6 +19,7 @@ build:
   # Job to run unit tests
 test:
   stage: test
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
   script:
     - mvn test -D java.awt.headless=true # Run Maven tests
   artifacts:
