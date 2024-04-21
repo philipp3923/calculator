@@ -19,7 +19,7 @@ build:
 test:
   stage: test
   script:
-    - mvn test          # Run Maven tests
+    - mvn test -D java.awt.headless=true # Run Maven tests
   artifacts:
     when: always        # Upload test results as artifacts
     reports:
