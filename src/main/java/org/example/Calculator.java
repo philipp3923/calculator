@@ -91,7 +91,7 @@ public class Calculator extends JFrame {
         }
     }
 
-    double performOperation(double firstNumber, double secondNumber, String operator) {
+    static double performOperation(double firstNumber, double secondNumber, String operator) {
         switch (operator) {
             case "+":
                 return firstNumber + secondNumber;
