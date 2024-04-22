@@ -40,4 +40,4 @@ publish-project:
     - job: build-project
     - job: test-project
   script:
-    - mvn clean deploy -DrepositoryId=gitlab-maven
+    - mvn clean deploy -P gitlab

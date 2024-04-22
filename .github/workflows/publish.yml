@@ -27,6 +27,6 @@ jobs:
           settings-path: ${{ github.workspace }}
 
       - name: Deploy to GitHub
-        run: mvn --batch-mode -P github deploy
+        run: mvn clean deploy -P github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
