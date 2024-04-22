@@ -2,7 +2,7 @@
 stages:
   - build
   - test
-  - release
+  - publish
 
 
 # Job to build the project using Maven
@@ -29,22 +29,11 @@ test-project:
       junit:
         - target/surefire-reports/*.xml  # Capture test results in JUnit XML format
 
-release-project:
-  stage: release
-  image: registry.gitlab.com/gitlab-org/release-cli:latest
+publish-project:
+  stage: publish
+  image: maven:latest
   needs:
-    - job: test-project
     - job: build-project
-      artifacts: true
+    - job: test-project
   script:
-    - echo "creating release"
-  rules:                          
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  release:
-    tag_name: 'v0.$CI_PIPELINE_IID' 
-    description: 'v0.$CI_PIPELINE_IID'   
-    ref: '$CI_COMMIT_SHA'
-    assets:
-      links:
-        - name: 'binary'
-          url: 'https://gitlab.com/api/v4/projects/57106016/jobs/artifacts/main/raw/review/index.html?job=build'
+    - mvn clean deploy  # Clean and build the Maven project

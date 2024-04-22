@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9de83bc3-553c-47e2-98a1-eb3868e182a5" name="Changes" comment="headless test">
-      <change afterPath="$PROJECT_DIR$/.mvn/extensions.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="9de83bc3-553c-47e2-98a1-eb3868e182a5" name="Changes" comment="deploy">
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +137,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1713708988300</updated>
-      <workItem from="1713708989322" duration="7004000" />
+      <workItem from="1713708989322" duration="7145000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -166,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713711419775</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="deploy">
+      <option name="closed" value="true" />
+      <created>1713773896795</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713773896795</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +182,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="make test public" />
     <MESSAGE value="headless test" />
-    <option name="LAST_COMMIT_MESSAGE" value="headless test" />
+    <MESSAGE value="deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy" />
   </component>
 </project>
