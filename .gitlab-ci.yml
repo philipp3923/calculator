@@ -35,7 +35,7 @@ publish-project:
   image: maven:latest
   only:
     refs:
-      - master
+      - main
   needs:
     - job: build-project
     - job: test-project
