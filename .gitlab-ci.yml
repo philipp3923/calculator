@@ -10,30 +10,34 @@ build-project:
   stage: build
   image: maven:latest
   script:
-    - mvn clean package  # Clean and build the Maven project
+    - mvn clean package
   artifacts:
     paths:
-      - target/*.jar    # Upload the generated JAR file as an artifact
+      - target/*.jar
 
-  # Job to run unit tests
+# Job to run unit tests
 test-project:
   stage: test
   image: maven:latest
   needs:
     - job: build-project
   script:
-    - mvn test -D java.awt.headless=true # Run Maven tests
+    - mvn test -D java.awt.headless=true
   artifacts:
-    when: always        # Upload test results as artifacts
+    when: always
     reports:
       junit:
-        - target/surefire-reports/*.xml  # Capture test results in JUnit XML format
+        - target/surefire-reports/*.xml
 
+# Job to publish the project to a Maven repository
 publish-project:
   stage: publish
   image: maven:latest
+  only:
+    refs:
+      - master
   needs:
     - job: build-project
     - job: test-project
   script:
-    - mvn clean deploy  # Clean and build the Maven project
+    - mvn clean deploy
