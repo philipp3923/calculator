@@ -60,4 +60,4 @@ jobs:
       - name: Deploy to GitHub
         run: mvn --batch-mode -P github deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
