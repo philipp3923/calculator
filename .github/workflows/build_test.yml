@@ -22,7 +22,7 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
         
-    - name: Test with Maven
+    - name: Build with Maven
       run: mvn package
         
   test:
